@@ -1,0 +1,167 @@
+{
+  "title": "한 권으로 끝내는 당선 지침서",
+  "subtitle": "이기는 선거비법, 승리를 기획하라",
+  "totalPages": 346,
+  "chapters": [
+    {
+      "id": "intro_toc",
+      "title": "차례",
+      "page": 1,
+      "bookPage": "차례",
+      "desc": "전체 목차 일람 (1~8면)"
+    },
+    {
+      "id": "preface",
+      "title": "책을 펴내며",
+      "subtitle": "떨어지고 싶지 않다면, 이 책을 읽어라!",
+      "page": 9,
+      "bookPage": "책을 펴내며",
+      "desc": "출간 배경 및 당선을 위한 핵심 메시지"
+    },
+    {
+      "id": "book_intro",
+      "title": "책 소개",
+      "page": 11,
+      "bookPage": "책 소개",
+      "desc": "각 장별 핵심 내용 요약 및 읽는 법"
+    },
+    {
+      "id": "ch1",
+      "title": "제1장 | 여론조사를 조사하다",
+      "subtitle": "ARS와 전화면접조사의 정확도 비교",
+      "coverPage": 16,
+      "page": 17,
+      "bookPage": 20,
+      "sections": [
+        { "title": "01. 완벽한 예측 도구가 아닌, '전략적 도구'로서의 여론조사 이해", "page": 17, "bookPage": 20 },
+        { "title": "02. 조사 방식에 따른 차이점과 ARS에 대한 오해", "page": 18, "bookPage": 21 },
+        { "title": "03. 여론조사 정확도 분석 방법", "page": 19, "bookPage": 22 },
+        { "title": "04. 평가 지표와 결과 해석", "page": 20, "bookPage": 23 },
+        { "title": "05. 선거별 여론조사 정확도 비교", "page": 22, "bookPage": 25 },
+        { "title": "06. 2020~2024년 '전화면접 vs ARS' 정확도 비교", "page": 25, "bookPage": 28 },
+        { "title": "07. 조사방식별 정확도 비교: 조사 방식의 순수 영향 측정", "page": 28, "bookPage": 31 },
+        { "title": "08. 정확도 분석의 한계", "page": 32, "bookPage": 35 },
+        { "title": "09. '예측 성공률 80%'에 담긴 함의", "page": 33, "bookPage": 36 },
+        { "title": "10. 제21대 대선 여론조사 분석: 'ARS vs 전화면접' 예측력 차이", "page": 34, "bookPage": 37 },
+        { "title": "11. '정확성'보다 중요한 것은 '전략적 활용'", "page": 36, "bookPage": 39 },
+        { "title": "12. 전략적 활용을 위한 대안 모색: 모바일 웹조사", "page": 37, "bookPage": 40 }
+      ]
+    },
+    {
+      "id": "ch2",
+      "title": "제2장 | 최근 4대 선거 분석과 지방선거 전망",
+      "subtitle": "격전지 58곳이 운명을 가른다",
+      "coverPage": 40,
+      "page": 41,
+      "bookPage": 42,
+      "sections": [
+        { "title": "01. 최근 4대 선거 분석결과 종합", "page": 41, "bookPage": 42 },
+        { "title": "    (1) 최근 4대 선거 기반 지형 분석", "page": 41, "bookPage": 42 },
+        { "title": "    (2) 접전이 예상되는 제9회 지방선거", "page": 42, "bookPage": 43 },
+        { "title": "    (3) 시도별 주요 격전지", "page": 43, "bookPage": 44 },
+        { "title": "02. 최근 4대 선거 시도별 분석", "page": 46, "bookPage": 47 },
+        { "title": "    (1) 수도권 (서울/경기/인천)", "page": 46, "bookPage": 47 },
+        { "title": "    (2) 충청권 (대전/충남/충북)", "page": 53, "bookPage": 54 },
+        { "title": "    (3) 호남권 (광주/전남/전북)", "page": 57, "bookPage": 58 },
+        { "title": "    (4) 대구·경북 (TK)", "page": 62, "bookPage": 63 },
+        { "title": "    (5) 부산·울산·경남 (PK)", "page": 65, "bookPage": 66 },
+        { "title": "    (6) 강원권", "page": 71, "bookPage": 72 },
+        { "title": "    (7) 세종·제주", "page": 73, "bookPage": 74 },
+        { "title": "03. 소결", "page": 74, "bookPage": 75 }
+      ]
+    },
+    {
+      "id": "ch3",
+      "title": "제3장 | '선거결정자'의 진화",
+      "subtitle": "청년을 얻는 자 미래를 얻는다",
+      "coverPage": 76,
+      "page": 77,
+      "bookPage": 78,
+      "sections": [
+        { "title": "01. 선거결정자의 진화 (지역/계급/세대/젠더 구도)", "page": 77, "bookPage": 78 },
+        { "title": "02. '선거결정자'로 떠오른 청년세대", "page": 91, "bookPage": 92 },
+        { "title": "03. 청년을 얻는 자 미래를 얻는다", "page": 93, "bookPage": 94 },
+        { "title": "04. 그들은 계속 청년을 이해하는 데 실패하고 있다", "page": 102, "bookPage": 103 }
+      ]
+    },
+    {
+      "id": "ch4",
+      "title": "제4장 | 전략지침서",
+      "subtitle": "이기는 선거비법, 승리를 기획하라",
+      "coverPage": 118,
+      "page": 119,
+      "bookPage": 118,
+      "sections": [
+        { "title": "01. 기록이 없다면 전략이 없는 것이다", "page": 119, "bookPage": 118 },
+        { "title": "02. 여론조사는 전략의 나침반이다", "page": 121, "bookPage": 120 },
+        { "title": "03. 출마하지 않으면 당선될 수 없다", "page": 123, "bookPage": 122 },
+        { "title": "04. 마케팅 불변의 법칙", "page": 127, "bookPage": 126 },
+        { "title": "05. 구도와 시대정신", "page": 131, "bookPage": 130 },
+        { "title": "06. 데이터 리더십", "page": 135, "bookPage": 134 },
+        { "title": "07. 인간이 내리는 대부분의 결정은 관계다", "page": 163, "bookPage": 162 },
+        { "title": "08. 예산서와 구체적인 자금조달 계획서를 작성하라", "page": 167, "bookPage": 166 },
+        { "title": "09. 전략적 캠페인에 자원을 아끼지 마라", "page": 169, "bookPage": 168 },
+        { "title": "10. 단언컨대 인재를 찾는 것보다 더 시급한 일은 없다", "page": 171, "bookPage": 170 },
+        { "title": "11. 손이 없으면 밥상을 차려줘도 못 먹는다", "page": 173, "bookPage": 172 },
+        { "title": "12. 하나의 단어를 심는 데 에너지를 쏟아부어라", "page": 178, "bookPage": 177 },
+        { "title": "13. 태풍을 일으키려면 '태풍의 눈'이 필요하다", "page": 180, "bookPage": 179 },
+        { "title": "14. 후광효과를 선점하라", "page": 183, "bookPage": 182 },
+        { "title": "15. 단순한 것이 가장 강력하다", "page": 203, "bookPage": 202 },
+        { "title": "16. 선거는 메시지다", "page": 205, "bookPage": 204 },
+        { "title": "17. 가족도 후보다", "page": 215, "bookPage": 214 },
+        { "title": "18. 스토리를 만들고 퍼뜨려라", "page": 218, "bookPage": 217 },
+        { "title": "19. 구슬이 서 말이라도 꿰어야 보배다", "page": 223, "bookPage": 222 },
+        { "title": "20. 시스템", "page": 225, "bookPage": 224 }
+      ]
+    },
+    {
+      "id": "ch5",
+      "title": "제5장 | 실전 매뉴얼",
+      "subtitle": "룰을 잘 아는 캠프가 판을 주도한다",
+      "coverPage": 230,
+      "page": 231,
+      "bookPage": 230,
+      "sections": [
+        { "title": "01. 제9회 전국동시지방선거 주요 일정", "page": 231, "bookPage": 230 },
+        { "title": "02. 반드시 기억해야 할 무시무시한 벌칙", "page": 232, "bookPage": 231 },
+        { "title": "03. 선거운동 개괄", "page": 239, "bookPage": 238 },
+        { "title": "04. 입후보예정자 등의 활동 방법", "page": 240, "bookPage": 239 },
+        { "title": "05. 출판기념회", "page": 245, "bookPage": 244 },
+        { "title": "06. 기타 활동 방법", "page": 249, "bookPage": 248 },
+        { "title": "07. 투표참여 권유 활동", "page": 252, "bookPage": 251 },
+        { "title": "08. 후원회", "page": 254, "bookPage": 253 },
+        { "title": "09. 지방선거 신분별·선거별 주요 현황", "page": 259, "bookPage": 258 },
+        { "title": "10. 선거사무관계자 수당·실비", "page": 261, "bookPage": 260 },
+        { "title": "11. 선거 준비기 정치자금 수입·지출 관련 참고 사항", "page": 262, "bookPage": 261 },
+        { "title": "12. 팬클럽 설치·운영·활동 관련", "page": 268, "bookPage": 267 },
+        { "title": "13. 입후보예정자 관련 포럼 활동에 관한 법규운용기준", "page": 274, "bookPage": 273 },
+        { "title": "14. 시스템 구축", "page": 279, "bookPage": 278 },
+        { "title": "15. 조직구축", "page": 280, "bookPage": 279 },
+        { "title": "16. 개인정보 보호 관련 준수사항", "page": 282, "bookPage": 281 },
+        { "title": "17. 여론조사를 통한 인지·호감도 제고", "page": 285, "bookPage": 284 },
+        { "title": "18. 예비후보자 등 선거운동 참고 사항", "page": 287, "bookPage": 286 },
+        { "title": "19. 당내경선 관련 주요 질의회답", "page": 289, "bookPage": 288 },
+        { "title": "20. 현직 지방자치단체장의 당내 경선운동 관련 질의회답", "page": 292, "bookPage": 291 },
+        { "title": "21. 제9회 지방선거 신분별 선거운동방법 일람표", "page": 293, "bookPage": 292 }
+      ]
+    },
+    {
+      "id": "ch6",
+      "title": "제6장 | 지역분석 실전사례",
+      "subtitle": "데이터를 보면 전략이 보인다",
+      "coverPage": 294,
+      "page": 295,
+      "bookPage": 294,
+      "sections": [
+        { "title": "I. 분석 개요", "page": 295, "bookPage": 294 },
+        { "title": "II. 결과 요약 및 종합 분석", "page": 297, "bookPage": 296 },
+        { "title": "III. 인구/가족 지표 분석", "page": 300, "bookPage": 299 },
+        { "title": "IV. 교육지표 분석", "page": 307, "bookPage": 306 },
+        { "title": "V. 주거/교통 지표 분석", "page": 311, "bookPage": 310 },
+        { "title": "VI. 고용/노동/성장/안정 지표 분석", "page": 317, "bookPage": 316 },
+        { "title": "VII. 건강/안전/환경/사회 지표 분석", "page": 323, "bookPage": 322 },
+        { "title": "VIII. 분석자료 지표 설명", "page": 330, "bookPage": 329 }
+      ]
+    }
+  ]
+}
