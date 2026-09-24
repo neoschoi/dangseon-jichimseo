@@ -7,41 +7,28 @@ echo   📖 한 권으로 끝내는 당선 지침서 - 전자책 웹 뷰어
 echo ======================================================
 echo.
 
-:: 1. Node.js 확인
+:: 1. 무설치 독립 실행 모드 (dist 폴더 기반 - Node.js 설치 불필요)
+if exist "%~dp0dist\index.html" (
+    echo [안내] 무설치 모드로 전자책 뷰어를 실행합니다. (Node.js 설치 불필요)
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\server.ps1"
+    goto :eof
+)
+
+:: 2. 개발 환경 모드 (Node.js가 설치되어 있는 경우)
 where node >nul 2>nul
-if %errorlevel% neq 0 (
-    echo [오류] Node.js가 설치되어 있지 않습니다.
-    echo Node.js(https://nodejs.org)를 설치한 후 다시 실행해주세요.
-    pause
-    exit /b 1
-)
-
-:: 2. 종속성 확인
-if not exist "node_modules\" (
-    echo [안내] 필수 패키지를 설치합니다...
-    call npm.cmd install
-)
-
-:: 3. 변환 파일 확인
-if not exist "public\book_pages\manifest.json" (
-    echo [안내] 최초 1회 스캔 이미지 WebP 변환을 시작합니다...
-    node scripts\convert.cjs
-    if %errorlevel% neq 0 (
-        echo [오류] 이미지 변환 중 문제가 발생했습니다.
-        pause
-        exit /b 1
+if %errorlevel% equ 0 (
+    if not exist "%~dp0node_modules\" (
+        echo [안내] 개발 환경 필수 패키지를 설치합니다...
+        call npm.cmd install
     )
+    echo [안내] 프로덕션 패키지를 빌드합니다...
+    call npm.cmd run build
+    powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0scripts\server.ps1"
+    goto :eof
 )
 
-:: 4. 브라우저 자동 실행 (2초 후 오픈)
-start "" powershell -NoProfile -Command "Start-Sleep -Seconds 2; Start-Process 'http://localhost:3000'"
-
-:: 5. 웹 서버 구동
+:: 3. 오류 안내
+echo ❌ [오류] 실행에 필요한 배포 파일(dist 폴더)을 찾을 수 없습니다.
+echo 패키지 내 dist 폴더가 정상적으로 포함되어 있는지 확인해주세요.
 echo.
-echo [안내] 당선지침서 뷰어 서버를 구동합니다...
-echo [주소] http://localhost:3000
-echo.
-echo [종료] 창을 닫거나 Ctrl+C를 누르면 종료됩니다.
-echo.
-
-call npm.cmd run dev -- --port 3000
+pause
