@@ -185,7 +185,8 @@ export default function App() {
 
   const handleLoadSamplePdf = useCallback(async () => {
     try {
-      const { pdfDoc, numPages, title } = await loadPdfDocument('/sample_election_guide.pdf');
+      const sampleUrl = `${import.meta.env.BASE_URL}sample_election_guide.pdf`;
+      const { pdfDoc, numPages, title } = await loadPdfDocument(sampleUrl);
       const outline = await extractPdfOutline(pdfDoc);
 
       setCurrentBook({
@@ -217,7 +218,7 @@ export default function App() {
     if (pageNum < 1 || pageNum > currentBook.totalPages) return Promise.resolve(null);
     if (currentBook.type === 'scan') {
       const pad = String(pageNum).padStart(4, '0');
-      return Promise.resolve(`/book_pages/high/${pad}.webp`);
+      return Promise.resolve(`${import.meta.env.BASE_URL}book_pages/high/${pad}.webp`);
     } else if (currentBook.type === 'pdf' && currentBook.pdfDoc) {
       return renderPdfPage(currentBook.pdfDoc, pageNum, 2.0);
     }
@@ -228,7 +229,7 @@ export default function App() {
     if (pageNum < 1 || pageNum > currentBook.totalPages) return Promise.resolve(null);
     if (currentBook.type === 'scan') {
       const pad = String(pageNum).padStart(4, '0');
-      return Promise.resolve(`/book_pages/thumb/${pad}.webp`);
+      return Promise.resolve(`${import.meta.env.BASE_URL}book_pages/thumb/${pad}.webp`);
     } else if (currentBook.type === 'pdf' && currentBook.pdfDoc) {
       return renderPdfThumb(currentBook.pdfDoc, pageNum);
     }
