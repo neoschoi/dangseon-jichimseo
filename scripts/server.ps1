@@ -1,24 +1,17 @@
-# ========================================================
-#   당선지침서 전자책 뷰어 - 무설치 네이티브 웹 서버
-#   Windows 기본 내장 .NET HttpListener 기반 (별도 프로그램 설치 불필요)
-# ========================================================
-
+﻿# Dangseon Jichimseo Standalone Web Server
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-$Host.UI.RawUI.WindowTitle = "당선지침서 전자책 뷰어"
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ProjectRoot = Resolve-Path (Join-Path $ScriptDir "..")
 $DistDir = Join-Path $ProjectRoot "dist"
 
-# dist 폴더가 없으면 에러 안내
 if (-not (Test-Path $DistDir)) {
-    Write-Host "❌ [오류] dist 빌드 폴더를 찾을 수 없습니다: $DistDir" -ForegroundColor Red
-    Write-Host "프로젝트 배포 패키지에 dist 폴더가 포함되어 있는지 확인해주세요." -ForegroundColor Yellow
-    Read-Host "엔터 키를 누르면 종료합니다..."
+    Write-Host "[Error] Cannot find dist folder: $DistDir" -ForegroundColor Red
+    Write-Host "Please ensure the dist folder is included." -ForegroundColor Yellow
+    Read-Host "Press Enter to exit..."
     exit 1
 }
 
-# MIME 타입 매핑 정의
 $MimeTypes = @{
     ".html" = "text/html; charset=utf-8"
     ".htm"  = "text/html; charset=utf-8"
@@ -39,7 +32,7 @@ $MimeTypes = @{
     ".ico"  = "image/x-icon"
 }
 
-# 사용 가능한 포트 탐색 (3000 ~ 3010)
+# Find available port between 3000 and 3010
 $Port = 3000
 $Listener = $null
 $MaxPort = 3010
@@ -58,26 +51,24 @@ while ($Port -le $MaxPort) {
 }
 
 if (-not $Listener.IsListening) {
-    Write-Host "❌ [오류] 웹 서버 포트(3000~3010)를 바인딩하지 못했습니다." -ForegroundColor Red
-    Read-Host "엔터 키를 누르면 종료합니다..."
+    Write-Host "[Error] Could not bind to port 3000-3010." -ForegroundColor Red
+    Read-Host "Press Enter to exit..."
     exit 1
 }
 
 $ServerUrl = "http://localhost:$Port"
 
 Write-Host "==========================================================" -ForegroundColor Cyan
-Write-Host "   📖 한 권으로 끝내는 당선 지침서 - 전자책 뷰어 실행 중" -ForegroundColor Green
+Write-Host "   [Dangseon Jichimseo E-Book Reader Running]" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host " [실행 상태] 무설치 로컬 서버가 정상 구동되었습니다." -ForegroundColor White
-Write-Host " [접속 주소] $ServerUrl" -ForegroundColor Yellow
-Write-Host " [종료 방법] 이 창을 닫거나 Ctrl+C 를 누르면 종료됩니다." -ForegroundColor Gray
+Write-Host " [Status] Standalone local server started successfully." -ForegroundColor White
+Write-Host " [URL]    $ServerUrl" -ForegroundColor Yellow
+Write-Host " [Exit]   Close this window or press Ctrl+C to stop." -ForegroundColor Gray
 Write-Host ""
 
-# 기본 브라우저 자동 실행
 Start-Process $ServerUrl
 
-# 요청 처리 루프
 try {
     while ($Listener.IsListening) {
         $context = $Listener.GetContext()
@@ -89,11 +80,9 @@ try {
             $urlPath = "/index.html"
         }
 
-        # 정규화된 로컬 파일 경로 생성
         $localRel = $urlPath.TrimStart('/').Replace('/', [System.IO.Path]::DirectorySeparatorChar)
         $filePath = Join-Path $DistDir $localRel
 
-        # SPA Fallback: 파일이 없으면 index.html 제공
         if (-not (Test-Path $filePath -PathType Leaf)) {
             $filePath = Join-Path $DistDir "index.html"
         }
@@ -103,7 +92,6 @@ try {
             $mime = if ($MimeTypes.ContainsKey($ext)) { $MimeTypes[$ext] } else { "application/octet-stream" }
             $response.ContentType = $mime
 
-            # 캐시 헤더 설정 (정적 자산은 캐싱)
             if ($ext -eq ".html") {
                 $response.AddHeader("Cache-Control", "no-cache")
             } else {
