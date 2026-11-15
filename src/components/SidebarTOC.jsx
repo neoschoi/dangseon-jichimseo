@@ -8,7 +8,8 @@ import {
   ChevronRight, 
   ChevronDown, 
   Trash2, 
-  Sparkles
+  Sparkles,
+  Download
 } from 'lucide-react';
 import bookMeta from '../data/bookMeta.json';
 
@@ -22,7 +23,8 @@ export default function SidebarTOC({
   notes,
   onOpenNote,
   currentBook,
-  pdfOutline = []
+  pdfOutline = [],
+  onDownloadPdf
 }) {
   const [activeTab, setActiveTab] = useState('toc'); // 'toc' | 'bookmarks' | 'notes'
   const [searchQuery, setSearchQuery] = useState('');
@@ -348,12 +350,22 @@ export default function SidebarTOC({
         )}
       </div>
 
-      {/* Footer Info */}
-      <div className="p-3 border-t text-[11px] text-stone-500 text-center flex items-center justify-center gap-1"
+      {/* Footer Info & Download Action */}
+      <div className="p-3 border-t space-y-2.5"
         style={{ borderColor: 'var(--border-color)' }}
       >
-        <Sparkles className="w-3.5 h-3.5 text-blue-400" />
-        <span>총 {currentBook.totalPages}페이지 수록</span>
+        <button
+          onClick={onDownloadPdf}
+          className="w-full py-2.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer hover:shadow hover:scale-[1.01] active:scale-[0.99]"
+          title="도서 전체를 PDF 파일로 다운로드"
+        >
+          <Download className="w-4 h-4" />
+          <span className="font-semibold">전체 PDF 다운로드 {currentBook.type === 'scan' ? '(37MB)' : ''}</span>
+        </button>
+        <div className="text-[11px] text-stone-500 text-center flex items-center justify-center gap-1">
+          <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+          <span>총 {currentBook.totalPages}페이지 수록</span>
+        </div>
       </div>
     </div>
   );

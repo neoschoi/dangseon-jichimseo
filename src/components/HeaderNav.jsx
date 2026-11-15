@@ -17,7 +17,8 @@ import {
   Square,
   FolderOpen,
   FileUp,
-  FileCheck
+  FileCheck,
+  Download
 } from 'lucide-react';
 
 export default function HeaderNav({
@@ -25,6 +26,7 @@ export default function HeaderNav({
   onOpenPdfFile,
   onLoadSamplePdf,
   onSwitchToDangseon,
+  onDownloadPdf,
   currentPage,
   totalPages,
   onPageChange,
@@ -116,7 +118,7 @@ export default function HeaderNav({
 
         <div className="h-5 w-px bg-stone-500/20 hidden sm:block"></div>
 
-        {/* File Open Buttons */}
+        {/* File Open & Download Buttons */}
         <div className="flex items-center gap-1">
           <button
             onClick={() => fileInputRef.current?.click()}
@@ -125,6 +127,15 @@ export default function HeaderNav({
           >
             <FolderOpen className="w-3.5 h-3.5" />
             <span className="hidden md:inline">PDF 열기</span>
+          </button>
+
+          <button
+            onClick={onDownloadPdf}
+            className="px-2.5 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white transition-all flex items-center gap-1.5 cursor-pointer text-xs font-semibold shadow-sm"
+            title="전체 도서 PDF로 다운로드"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">PDF 다운로드</span>
           </button>
 
           {/* If currently viewing PDF, offer quick return to Dangseon */}

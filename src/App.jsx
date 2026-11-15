@@ -173,7 +173,8 @@ export default function App() {
         title: title || file.name,
         subtitle: `${file.name} (총 ${numPages}페이지)`,
         totalPages: numPages,
-        pdfDoc
+        pdfDoc,
+        file
       });
       setPdfOutline(outline);
       setCurrentPage(1);
@@ -195,7 +196,8 @@ export default function App() {
         title: title || '2026 선거 전략 매뉴얼 (샘플)',
         subtitle: 'PDF 파일 열기 기능 검증용 샘플 도서 (5p)',
         totalPages: numPages,
-        pdfDoc
+        pdfDoc,
+        url: sampleUrl
       });
       setPdfOutline(outline);
       setCurrentPage(1);
@@ -212,6 +214,37 @@ export default function App() {
     const val = parseInt(saved, 10);
     setCurrentPage(!isNaN(val) && val >= 1 && val <= DANGSEON_BOOK.totalPages ? val : 1);
   }, []);
+
+  // PDF Full Download Handler
+  const handleDownloadPdf = useCallback(() => {
+    if (currentBook.type === 'scan') {
+      const downloadUrl = `${import.meta.env.BASE_URL}dangseon_jichimseo_full.pdf`;
+      const a = document.createElement('a');
+      a.href = downloadUrl;
+      a.download = '당선지침서_전체.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else if (currentBook.type === 'pdf') {
+      if (currentBook.file) {
+        const url = URL.createObjectURL(currentBook.file);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = currentBook.file.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      } else if (currentBook.url) {
+        const a = document.createElement('a');
+        a.href = currentBook.url;
+        a.download = `${currentBook.title}.pdf`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    }
+  }, [currentBook]);
 
   // Universal page image getters
   const getPageUrl = useCallback((pageNum) => {
@@ -307,6 +340,7 @@ export default function App() {
         onOpenPdfFile={handleOpenPdfFile}
         onLoadSamplePdf={handleLoadSamplePdf}
         onSwitchToDangseon={handleSwitchToDangseon}
+        onDownloadPdf={handleDownloadPdf}
         currentPage={currentPage}
         totalPages={currentBook.totalPages}
         onPageChange={setCurrentPage}
@@ -361,6 +395,7 @@ export default function App() {
           onOpenNote={openNoteForPage}
           currentBook={currentBook}
           pdfOutline={pdfOutline}
+          onDownloadPdf={handleDownloadPdf}
         />
 
         {/* Backdrop for mobile when sidebar is open */}
